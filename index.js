@@ -39,6 +39,8 @@ const http = require('http');
 
 const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
+
+console.log('11')
  
 const hostname = '127.0.0.1';
 const port = 3000;
