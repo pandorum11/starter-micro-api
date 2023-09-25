@@ -37,6 +37,8 @@
 
 const http = require('http');
 
+console.log('11')
+
 const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
 
