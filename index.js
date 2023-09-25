@@ -24,11 +24,13 @@ const port = process.env.PORT || 8080;
 // Viber will push messages sent to this URL. Web server should be internet-facing.
 const webhookUrl = process.env.WEBHOOK_URL;
 
-const httpsOptions = {
-    key: fs.readFileSync("rsa.key"),
-    cert: fs.readFileSync("csr.crt"),
-    ca: fs.readFileSync("tender-bear-underclothes.cyclic.cloud.ca-bundle")
-  };// Trusted SSL certification (not self-signed).
-  https.createServer(httpsOptions, bot.middleware()).listen(port, () => bot.setWebhook(webhookUrl).catch((err)=>{
-      console.log(err)
-  }));
+console.log('1')
+
+// const httpsOptions = {
+//     key: fs.readFileSync("rsa.key"),
+//     cert: fs.readFileSync("csr.crt"),
+//     ca: fs.readFileSync("tender-bear-underclothes.cyclic.cloud.ca-bundle")
+//   };// Trusted SSL certification (not self-signed).
+//   https.createServer(httpsOptions, bot.middleware()).listen(port, () => bot.setWebhook(webhookUrl).catch((err)=>{
+//       console.log(err)
+//   }));
