@@ -25,8 +25,9 @@ const port = process.env.PORT || 8080;
 const webhookUrl = process.env.WEBHOOK_URL;
 
 const httpsOptions = {
-    key: fs.readFileSync(`main.key`),
-    cert: fs.readFileSync('main.crt'),
+    key: fs.readFileSync("rsa.key"),
+    cert: fs.readFileSync("csr.crt"),
+    ca: fs.readFileSync("tender-bear-underclothes.cyclic.cloud.ca-bundle")
   };// Trusted SSL certification (not self-signed).
   https.createServer(httpsOptions, bot.middleware()).listen(port, () => bot.setWebhook(webhookUrl).catch((err)=>{
       console.log(err)

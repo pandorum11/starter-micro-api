@@ -9,5 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "viber-bot": "^1.0.18"
   }
 }
