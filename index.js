@@ -8,7 +8,7 @@ const BotEvents = require('viber-bot').Events;
 const bot = new ViberBot({
 	authToken: '51acb82bf1e7dcd3-917b66c231c4e424-9020200045e9c5ee',
 	name: "TestBotAccountpandorum",
-	avatar: "" // It is recommended to be 720x720, and no more than 100kb.
+	avatar: "11111.jpg" // It is recommended to be 720x720, and no more than 100kb.
 });
 
 // Perfect! Now here's the key part:
