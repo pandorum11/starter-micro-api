@@ -59,7 +59,7 @@
 
 const http = require('http');
 
-const hostname = 'vibertestbot1717.online';
+const hostname = '127.0.0.1';
 const port = 3000;
 
 router.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
