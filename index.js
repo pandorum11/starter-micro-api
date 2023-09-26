@@ -113,6 +113,7 @@
 
 const express = require("express");
 const app = express();
+app.enable('trust proxy');
 const PORT = 3000;
 
 var fs = require("fs");
@@ -121,6 +122,14 @@ var fs = require("fs");
 
 app.get("/", function (req, res) {
   res.send({ title: "GeeksforGeeks" });
+});
+
+app.use((req,res,next)=>{
+  if(rec.secure){
+      next();
+  }else{
+      res.redirect('/'+req.url);
+  }
 });
 
 
