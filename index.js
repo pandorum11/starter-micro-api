@@ -58,11 +58,13 @@
 // }).listen(8443)
 
 const http = require('http');
+const express = require('express')
+const app = express()
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-router.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
+app.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
   res.send("Wiki home page");
 });
  
