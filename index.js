@@ -64,7 +64,7 @@
 // const hostname = '127.0.0.1';
 // const port = 3000;
 
-// app.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
+// app.get("/.well-known/pki-validation/B61165D617DB9E09CD380BBF6379AF8D.txt", function (req, res) {
 //   res.send("Wiki home page");
 // });
 
@@ -95,8 +95,8 @@
 //         res.write(' Welcome to about us page');
 //         res.end();
 //     }
-//     else if(url ==='/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt') {
-//       fs.readFile('6A03ED988795AFB8B671A4B25BA70643.txt', function(err, data) {
+//     else if(url ==='/.well-known/pki-validation/B61165D617DB9E09CD380BBF6379AF8D.txt') {
+//       fs.readFile('B61165D617DB9E09CD380BBF6379AF8D.txt', function(err, data) {
 //         res.write(data);
 //         return res.end();
 //       });
@@ -124,19 +124,19 @@ app.get("/", function (req, res) {
 });
 
 
-app.get('/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt', function (req, res) {
-  fs.readFile('6A03ED988795AFB8B671A4B25BA70643.txt', function(err, data) {
+app.get('/.well-known/pki-validation/B61165D617DB9E09CD380BBF6379AF8D.txt', function (req, res) {
+  fs.readFile('B61165D617DB9E09CD380BBF6379AF8D.txt', function(err, data) {
     res.send(data);
     //return res.end();
   });
 });
 
-app.use(function(request, response, next) {
-  if (process.env.NODE_ENV != 'development' && !request.secure) {
-     return response.redirect("https://" + request.headers.host + request.url);
-  }
-  next();
-})
+// app.use(function(request, response, next) {
+//   if (process.env.NODE_ENV != 'development' && !request.secure) {
+//      return response.redirect("https://" + request.headers.host + request.url);
+//   }
+//   next();
+// })
 
 app.listen(PORT, function (err) {
   if (err) console.log(err);
