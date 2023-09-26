@@ -131,6 +131,13 @@ app.get('/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt', func
   });
 });
 
+app.use(function(request, response, next) {
+  if (process.env.NODE_ENV != 'development' && !request.secure) {
+     return response.redirect("https://" + request.headers.host + request.url);
+  }
+  next();
+})
+
 app.listen(PORT, function (err) {
   if (err) console.log(err);
   console.log("Server listening on PORT", PORT);
