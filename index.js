@@ -118,9 +118,6 @@ const PORT = 3000;
 var fs = require("fs");
 
 // Without middleware
-app.get("http://tender-bear-underclothes.cyclic.cloud", function (req, res) {
-  res.send({ title: "ФФФФФ" });
-});
 
 app.get("/", function (req, res) {
   res.send({ title: "GeeksforGeeks" });
