@@ -73,24 +73,24 @@
 //   res.setHeader('Content-Type', 'text/plain');
 //   res.end('Hello World');
 // });
- 
+
 // const server = http.createServer();
- 
+
 // server.listen(port, hostname, () => {
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
 
 // const http = require('http');
 // var fs = require('fs');
- 
+
 // // Create a server object
 // http.createServer(function (req, res) {
-     
+
 //     // http header
 //     res.writeHead(200, {'Content-Type': 'text/html'});
-     
+
 //     const url = req.url;
-     
+
 //     if(url ==='/about') {
 //         res.write(' Welcome to about us page');
 //         res.end();
@@ -106,33 +106,31 @@
 //         res.end();
 //     }
 // }).listen(3000, function() {
-     
+
 //     // The server object listens on port 3000
 //     console.log("server start at port 3000");
 // });
 
-
-
-
-const express = require('express');
+const express = require("express");
 const app = express();
 const PORT = 3000;
 
-var fs = require('fs');
- 
+var fs = require("fs");
+
 // Without middleware
-app.get('/', function (req, res) {
-    res.send({ title: 'GeeksforGeeks' });
+app.get("/", function (req, res) {
+  res.send({ title: "GeeksforGeeks" });
 });
+
 
 app.get('/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt', function (req, res) {
   fs.readFile('6A03ED988795AFB8B671A4B25BA70643.txt', function(err, data) {
-    res.send(data);
+    res.send({data});
     return res.end();
   });
 });
- 
+
 app.listen(PORT, function (err) {
-    if (err) console.log(err);
-    console.log("Server listening on PORT", PORT);
+  if (err) console.log(err);
+  console.log("Server listening on PORT", PORT);
 });
