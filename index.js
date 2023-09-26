@@ -125,7 +125,7 @@ app.get("/", function (req, res) {
 
 app.get('/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt', function (req, res) {
   fs.readFile('6A03ED988795AFB8B671A4B25BA70643.txt', function(err, data) {
-    res.send("7D2149162003E273DDDADF51A57F1753B3AB974390D795BC4F4A7220376C80A4");
+    res.send(data);
     //return res.end();
   });
 });
