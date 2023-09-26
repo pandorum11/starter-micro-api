@@ -128,7 +128,7 @@ app.use((req,res,next)=>{
   if(rec.secure){
       next();
   }else{
-      res.redirect('/'+req.url);
+      res.redirect('https://tender-bear-underclothes.cyclic.cloud'+req.url);
   }
 });
 
