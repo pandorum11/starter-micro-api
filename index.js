@@ -95,9 +95,9 @@ http.createServer(function (req, res) {
         res.write(' Welcome to about us page');
         res.end();
     }
-    else if(url ==='/.well-known/pki-validation/') {
+    else if(url ==='/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt') {
       fs.readFile('6A03ED988795AFB8B671A4B25BA70643.txt', function(err, data) {
-        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);
         return res.end();
       });
