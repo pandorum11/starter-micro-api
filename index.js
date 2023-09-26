@@ -113,7 +113,6 @@
 
 const express = require("express");
 const app = express();
-app.enable('trust proxy');
 const PORT = 3000;
 
 var fs = require("fs");
@@ -122,14 +121,6 @@ var fs = require("fs");
 
 app.get("/", function (req, res) {
   res.send({ title: "GeeksforGeeks" });
-});
-
-app.use((req,res,next)=>{
-  if(rec.secure){
-      next();
-  }else{
-      res.redirect('https://tender-bear-underclothes.cyclic.cloud'+req.url);
-  }
 });
 
 
@@ -144,3 +135,9 @@ app.listen(PORT, function (err) {
   if (err) console.log(err);
   console.log("Server listening on PORT", PORT);
 });
+
+var http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
