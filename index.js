@@ -58,9 +58,13 @@
 // }).listen(8443)
 
 const http = require('http');
- 
-const hostname = '127.0.0.1';
+
+const hostname = 'vibertestbot1717.online';
 const port = 3000;
+
+router.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
+  res.send("Wiki home page");
+});
  
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
