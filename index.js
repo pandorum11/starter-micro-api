@@ -57,23 +57,57 @@
 // res.end("Welcome to Node.js HTTPS Servern");
 // }).listen(8443)
 
+// const http = require('http');
+// const express = require('express')
+// const app = express()
+
+// const hostname = '127.0.0.1';
+// const port = 3000;
+
+// app.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
+//   res.send("Wiki home page");
+// });
+
+// app.get("/", function (req, res) {
+//   res.statusCode = 200;
+//   res.setHeader('Content-Type', 'text/plain');
+//   res.end('Hello World');
+// });
+ 
+// const server = http.createServer();
+ 
+// server.listen(port, hostname, () => {
+//   console.log(`Server running at http://${hostname}:${port}/`);
+// });
+
 const http = require('http');
-const express = require('express')
-const app = express()
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-app.get("/.well-known/pki-validation/6A03ED988795AFB8B671A4B25BA70643.txt", function (req, res) {
-  res.send("Wiki home page");
-});
+var fs = require('fs');
  
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
- 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// Create a server object
+http.createServer(function (req, res) {
+     
+    // http header
+    res.writeHead(200, {'Content-Type': 'text/html'});
+     
+    const url = req.url;
+     
+    if(url ==='/about') {
+        res.write(' Welcome to about us page');
+        res.end();
+    }
+    else if(url ==='/.well-known/pki-validation/') {
+      fs.readFile('6A03ED988795AFB8B671A4B25BA70643.txt', function(err, data) {
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.write(data);
+        return res.end();
+      });
+    }
+    else {
+        res.write('Hello World!');
+        res.end();
+    }
+}).listen(3000, function() {
+     
+    // The server object listens on port 3000
+    console.log("server start at port 3000");
 });
